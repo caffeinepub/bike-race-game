@@ -1,0 +1,127 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Bike Race Game Fonts ─────────────────────────────────── */
+@font-face {
+  font-family: "Cabinet Grotesk";
+  src: url("/assets/fonts/CabinetGrotesk-Variable.woff2") format("woff2");
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Bricolage Grotesque";
+  src: url("/assets/fonts/BricolageGrotesque-Variable.woff2") format("woff2");
+  font-weight: 200 800;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Geist Mono";
+  src: url("/assets/fonts/GeistMono-Variable.woff2") format("woff2");
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+@layer base {
+  :root {
+    /* Racing dark theme - always dark */
+    --radius: 0.5rem;
+
+    /* Asphalt black background */
+    --background: 0.1 0.005 250;
+    --foreground: 0.96 0.01 90;
+
+    --card: 0.14 0.008 250;
+    --card-foreground: 0.96 0.01 90;
+
+    --popover: 0.14 0.008 250;
+    --popover-foreground: 0.96 0.01 90;
+
+    /* Racing orange-red as primary */
+    --primary: 0.68 0.22 38;
+    --primary-foreground: 0.06 0.005 250;
+
+    --secondary: 0.18 0.01 250;
+    --secondary-foreground: 0.85 0.01 90;
+
+    --muted: 0.16 0.008 250;
+    --muted-foreground: 0.55 0.01 250;
+
+    /* Neon yellow accent */
+    --accent: 0.85 0.2 95;
+    --accent-foreground: 0.06 0.005 250;
+
+    --destructive: 0.65 0.22 25;
+    --destructive-foreground: 0.96 0.01 90;
+
+    --border: 0.22 0.01 250;
+    --input: 0.22 0.01 250;
+    --ring: 0.68 0.22 38;
+
+    /* Chart colors */
+    --chart-1: 0.68 0.22 38;
+    --chart-2: 0.85 0.2 95;
+    --chart-3: 0.55 0.18 270;
+    --chart-4: 0.7 0.16 160;
+    --chart-5: 0.75 0.18 200;
+
+    /* Sidebar */
+    --sidebar: 0.12 0.006 250;
+    --sidebar-foreground: 0.96 0.01 90;
+    --sidebar-primary: 0.68 0.22 38;
+    --sidebar-primary-foreground: 0.06 0.005 250;
+    --sidebar-accent: 0.16 0.008 250;
+    --sidebar-accent-foreground: 0.85 0.01 90;
+    --sidebar-border: 0.22 0.01 250;
+    --sidebar-ring: 0.68 0.22 38;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Cabinet Grotesk", sans-serif;
+    overflow-x: hidden;
+  }
+}
+
+/* ── Game-specific styles ─────────────────────────────────── */
+.game-title {
+  font-family: "Bricolage Grotesque", sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+
+.game-mono {
+  font-family: "Geist Mono", monospace;
+}
+
+.game-container {
+  background: radial-gradient(ellipse at 50% 30%, oklch(0.16 0.025 250), oklch(0.08 0.01 250) 70%);
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.speed-bar {
+  background: linear-gradient(90deg, oklch(0.68 0.22 38), oklch(0.85 0.2 95));
+}
+
+/* Neon glow on canvas border */
+.canvas-glow {
+  box-shadow:
+    0 0 0 1px oklch(0.68 0.22 38 / 0.4),
+    0 0 20px oklch(0.68 0.22 38 / 0.2),
+    0 0 60px oklch(0.68 0.22 38 / 0.1);
+}
+
+/* Control button press effect */
+.ctrl-btn:active {
+  transform: scale(0.93);
+}
